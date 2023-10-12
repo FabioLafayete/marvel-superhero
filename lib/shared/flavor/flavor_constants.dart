@@ -1,2 +1,2 @@
 const String apiKey = 'apiKey';
-const String hashKey = 'hash';
+const String hashKey = 'hashKey';

@@ -23,5 +23,5 @@ Future _preload() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-  Modular.setInitialRoute(PagesNames.home);
+  Modular.setInitialRoute(PagesNames.splash);
 }

@@ -74,6 +74,12 @@ class CustomInterceptors extends Interceptor {
   late DateTime timeRequest;
 
   @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    super.onRequest(options, handler);
+    timeRequest = DateTime.now();
+  }
+
+  @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     Duration duration = DateTime.now().difference(timeRequest);
     String time = '${duration.inSeconds}.${duration.inMilliseconds.toString().substring(duration.inSeconds.toString().length)}s';
