@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:superhero/router/app_module.dart';
+import 'package:superhero/router/pages_name.dart';
 
-void main() {
-  runApp(const MainApp());
+void main() async {
+  await _preload();
+  runApp(
+      ModularApp(
+        module: AppModule(),
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          locale: const Locale('pt', 'BR'),
+          routeInformationParser: Modular.routeInformationParser,
+          routerDelegate: Modular.routerDelegate,
+        ),
+      )
+  );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
+Future _preload() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  Modular.setInitialRoute(PagesNames.home);
 }
