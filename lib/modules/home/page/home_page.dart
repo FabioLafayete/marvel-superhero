@@ -63,8 +63,9 @@ class HomePage extends StateBase<HomeController> {
                                   },
                                 );
                               },
-                              child: CardCharacterWidget(
-                                item: controller.listCharacters[index],
+                              child: CardItemWidget(
+                                thumbnail: controller.listCharacters[index].thumbnail!,
+                                name: controller.listCharacters[index].name,
                               ),
                             );
                           },

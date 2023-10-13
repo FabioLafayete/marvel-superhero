@@ -1,15 +1,20 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:superhero/models/characters/character_model/character_model.dart';
+import 'package:superhero/models/characters/image_model/image_model.dart';
 import 'package:superhero/modules/home/controller/home_controller.dart';
 import 'package:superhero/shared/widgets/state_base.dart';
 
-class CardCharacterWidget extends StateBase<HomeController> {
+class CardItemWidget extends StateBase<HomeController> {
 
-  CardCharacterWidget({super.key, required this.item});
+  CardItemWidget({
+    super.key,
+    required this.name,
+    required this.thumbnail,
+  });
 
-  final CharacterModel item;
+  final ImageModel thumbnail;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,7 @@ class CardCharacterWidget extends StateBase<HomeController> {
           borderRadius: BorderRadius.circular(12),
           child: CachedNetworkImage(
               fadeInDuration: const Duration(milliseconds: 300),
-              imageUrl: controller.getImageUrl(item.thumbnail!),
+              imageUrl: controller.getImageUrl(thumbnail),
               alignment: Alignment.topCenter,
               width: 140,
               height: 140,
@@ -46,7 +51,7 @@ class CardCharacterWidget extends StateBase<HomeController> {
             children: [
               Expanded(
                 child: Text(
-                  item.name,
+                  name,
                   style: TextStyle(
                       color: colors.text,
                       fontWeight: FontWeight.w600
