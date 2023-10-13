@@ -10,10 +10,12 @@ _$ItemModelImpl _$$ItemModelImplFromJson(Map<String, dynamic> json) =>
     _$ItemModelImpl(
       resourceURI: json['resourceURI'] as String,
       name: json['name'] as String,
+      role: json['role'] as String?,
     );
 
 Map<String, dynamic> _$$ItemModelImplToJson(_$ItemModelImpl instance) =>
     <String, dynamic>{
       'resourceURI': instance.resourceURI,
       'name': instance.name,
+      'role': instance.role,
     };

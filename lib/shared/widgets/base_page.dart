@@ -16,7 +16,8 @@ class BasePage extends StateBase {
     this.backgroundColor,
     this.paddingPage,
     this.actions,
-    this.elevation
+    this.elevation,
+    this.appBarColor,
   }) : super(key: key);
 
   final Widget body;
@@ -29,6 +30,7 @@ class BasePage extends StateBase {
   final Widget? bottomNavigationBar;
   final Widget? floatingActionButton;
   final Color? backgroundColor;
+  final Color? appBarColor;
   final double? paddingPage;
   final List<Widget>? actions;
   final double? elevation;
@@ -55,8 +57,8 @@ class BasePage extends StateBase {
   PreferredSizeWidget _appBar(BuildContext context){
     return AppBar(
       title: title == null ? Container() :
-      Text(title!, style: TextStyle(color: colors.textSecondary, fontWeight: FontWeight.w600),),
-      backgroundColor: colors.primary,
+      Text(title!, style: TextStyle(color: colors.text, fontWeight: FontWeight.w600),),
+      backgroundColor: appBarColor ?? colors.primary,
       automaticallyImplyLeading: automaticallyImplyLeading,
       elevation: elevation,
       actions: actions,

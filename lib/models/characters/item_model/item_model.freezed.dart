@@ -22,6 +22,7 @@ ItemModel _$ItemModelFromJson(Map<String, dynamic> json) {
 mixin _$ItemModel {
   String get resourceURI => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String? get role => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $ItemModelCopyWith<$Res> {
   factory $ItemModelCopyWith(ItemModel value, $Res Function(ItemModel) then) =
       _$ItemModelCopyWithImpl<$Res, ItemModel>;
   @useResult
-  $Res call({String resourceURI, String name});
+  $Res call({String resourceURI, String name, String? role});
 }
 
 /// @nodoc
@@ -52,6 +53,7 @@ class _$ItemModelCopyWithImpl<$Res, $Val extends ItemModel>
   $Res call({
     Object? resourceURI = null,
     Object? name = null,
+    Object? role = freezed,
   }) {
     return _then(_value.copyWith(
       resourceURI: null == resourceURI
@@ -62,6 +64,10 @@ class _$ItemModelCopyWithImpl<$Res, $Val extends ItemModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -74,7 +80,7 @@ abstract class _$$ItemModelImplCopyWith<$Res>
       __$$ItemModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String resourceURI, String name});
+  $Res call({String resourceURI, String name, String? role});
 }
 
 /// @nodoc
@@ -90,6 +96,7 @@ class __$$ItemModelImplCopyWithImpl<$Res>
   $Res call({
     Object? resourceURI = null,
     Object? name = null,
+    Object? role = freezed,
   }) {
     return _then(_$ItemModelImpl(
       resourceURI: null == resourceURI
@@ -100,6 +107,10 @@ class __$$ItemModelImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -107,7 +118,8 @@ class __$$ItemModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ItemModelImpl extends _ItemModel {
-  const _$ItemModelImpl({required this.resourceURI, required this.name})
+  const _$ItemModelImpl(
+      {required this.resourceURI, required this.name, this.role})
       : super._();
 
   factory _$ItemModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -117,10 +129,12 @@ class _$ItemModelImpl extends _ItemModel {
   final String resourceURI;
   @override
   final String name;
+  @override
+  final String? role;
 
   @override
   String toString() {
-    return 'ItemModel(resourceURI: $resourceURI, name: $name)';
+    return 'ItemModel(resourceURI: $resourceURI, name: $name, role: $role)';
   }
 
   @override
@@ -130,12 +144,13 @@ class _$ItemModelImpl extends _ItemModel {
             other is _$ItemModelImpl &&
             (identical(other.resourceURI, resourceURI) ||
                 other.resourceURI == resourceURI) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.role, role) || other.role == role));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, resourceURI, name);
+  int get hashCode => Object.hash(runtimeType, resourceURI, name, role);
 
   @JsonKey(ignore: true)
   @override
@@ -154,7 +169,8 @@ class _$ItemModelImpl extends _ItemModel {
 abstract class _ItemModel extends ItemModel {
   const factory _ItemModel(
       {required final String resourceURI,
-      required final String name}) = _$ItemModelImpl;
+      required final String name,
+      final String? role}) = _$ItemModelImpl;
   const _ItemModel._() : super._();
 
   factory _ItemModel.fromJson(Map<String, dynamic> json) =
@@ -164,6 +180,8 @@ abstract class _ItemModel extends ItemModel {
   String get resourceURI;
   @override
   String get name;
+  @override
+  String? get role;
   @override
   @JsonKey(ignore: true)
   _$$ItemModelImplCopyWith<_$ItemModelImpl> get copyWith =>

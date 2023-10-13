@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
 
   final ColorsSchema schema = ColorsSchema(
-    text: const Color.fromRGBO(240, 240, 240, 1.0),
+    text: const Color.fromRGBO(245, 245, 245, 1.0),
     textSecondary: Colors.grey,
     primary: Colors.pink,
     secondary: Colors.purple,

@@ -19,7 +19,7 @@ abstract class _HomeController with Store {
   final GetCharactersUseCase getCharactersUseCase;
 
   int offSet = 0;
-  int totalItems = 0;
+  int? totalItems;
 
   @observable
   List<CharacterModel> listCharacters = [];
@@ -44,7 +44,7 @@ abstract class _HomeController with Store {
     try{
 
       if(showMore){
-        if(offSet >= totalItems){
+        if(totalItems != null && (offSet >= totalItems!)){
           return;
         }
 

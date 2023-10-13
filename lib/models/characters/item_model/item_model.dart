@@ -10,6 +10,7 @@ class ItemModel with _$ItemModel {
   const factory ItemModel({
     required String resourceURI,
     required String name,
+    String? role,
   }) = _ItemModel;
 
   factory ItemModel.fromJson(Map<String, dynamic> json) =>

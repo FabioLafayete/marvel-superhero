@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:superhero/modules/home/controller/home_controller.dart';
 import 'package:superhero/modules/home/widgets/card_character_widget.dart';
+import 'package:superhero/router/pages_name.dart';
 import 'package:superhero/shared/constants/images_contants.dart';
 import 'package:superhero/shared/widgets/state_base.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -53,8 +54,18 @@ class HomePage extends StateBase<HomeController> {
                             mainAxisSpacing: 10,
                           ),
                           itemBuilder: (_, index){
-                            return CardCharacterWidget(
-                              item: controller.listCharacters[index],
+                            return GestureDetector(
+                              onTap: (){
+                                router.pushNamed(
+                                  PagesNames.character,
+                                  arguments: {
+                                    'model': controller.listCharacters[index]
+                                  },
+                                );
+                              },
+                              child: CardCharacterWidget(
+                                item: controller.listCharacters[index],
+                              ),
                             );
                           },
                         ),
