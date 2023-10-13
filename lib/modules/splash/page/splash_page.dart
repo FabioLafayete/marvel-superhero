@@ -31,37 +31,18 @@ class _SplashPageState extends State<SplashPage> {
     return BasePage(
       showAppBar: false,
       paddingPage: 0,
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          _background(),
-          Text(
-            'SuperHero',
-            style: TextStyle(
-                fontSize: 35,
-                fontWeight: FontWeight.w600,
-                color: AppColors().text
-            ),
+      backgroundColor: AppColors().background,
+      body: Center(
+        child: Text(
+          'SuperHero',
+          style: TextStyle(
+              fontSize: 35,
+              fontWeight: FontWeight.w600,
+              color: AppColors().text
           ),
-        ],
+        ),
       ),
     );
   }
 
-  Widget _background(){
-    return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              tileMode: TileMode.repeated,
-              begin: Alignment.topRight,
-              end: Alignment.bottomRight,
-              colors: [
-                AppColors().secondary,
-                AppColors().primary,
-                AppColors().primary,
-              ]
-          )
-      ),
-    );
-  }
 }
