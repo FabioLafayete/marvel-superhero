@@ -1,9 +1,5 @@
-# superhero
-
-A new Flutter project.
-
-# Disney+ Clone
+# Superhero
 
 A superhero list of Marvel
 
-<img src="assets/gif/superhero" width="300" height="560"/>
+<img src="assets/gif/superhero.gif" width="300" height="560"/>
